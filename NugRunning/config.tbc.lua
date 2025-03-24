@@ -47,14 +47,14 @@ Spell( 24259 ,{ name = "Silence", duration = 3, color = colors.PINK, affiliation
 local normalize_dots_to = nil--26
 
 
-Spell( 6358, { name = "Seduction", duration = 15, pvpduration = 20, color = colors.PURPLE4, affiliation = "any" }) -- varies, Improved Succubus
+Spell( 6358, { name = "Seduction", duration = 15, pvpduration = 10, color = colors.PURPLE4, affiliation = "any" }) -- varies, Improved Succubus
 Spell({ 5484, 17928 }, { name = "Howl of Terror", shine = true, affiliation = "any", multiTarget = true,
     duration = function(timer)
         return timer.spellID == 5484 and 10 or 15
     end
 })
 Spell({ 5782, 6213, 6215 }, { name = "Fear",
-    pvpduration = 20, affiliation = "any",
+    pvpduration = 10, affiliation = "any",
     duration = function(timer)
         if timer.spellID == 5782 then return 10
         elseif timer.spellID == 6213 then return 15
@@ -62,7 +62,7 @@ Spell({ 5782, 6213, 6215 }, { name = "Fear",
     end
 })
 Spell({ 710, 18647 }, { name = "Banish", nameplates = true, color = colors.TEAL3, affiliation = "any",
-    pvpduration = 20,
+    pvpduration = 10,
     duration = function(timer)
         return timer.spellID == 710 and 20 or 30
     end
@@ -98,7 +98,7 @@ Spell({ 20170 }, { name = "Seal of Justice Stun", duration = 1, shine = true, co
 -- HUNT
 
 Spell({ 1513, 14326, 14327 }, { name = "Scare Beast", affiliation = "any",
-    pvpduration = 20,
+    pvpduration = 10,
     duration = function(timer)
         if timer.spellID == 1513 then return 10
         elseif timer.spellID == 14326 then return 15
@@ -111,11 +111,11 @@ Spell({ 19229 }, { name = "Improved Wing Clip", duration = 5, shine = true, colo
 Spell({ 19185 }, { name = "Entrapment", duration = 4, shine = true, color = colors.DRED, affiliation = "any" })
 
 Spell({ 3034, 14279, 14280, 27018 }, { name = "Viper Sting", duration = 8, color = colors.DBLUE, affiliation = "any" })
-Spell({ 19386, 24132, 24133, 27068 }, { name = "Wyvern Sting", short = "Sleep", duration = 12, color = colors.PURPLE3, ghost = 1, affiliation = "any" })
+Spell({ 19386, 24132, 24133, 27068 }, { name = "Wyvern Sting", short = "Sleep", duration = 12, pvpduration = 10, color = colors.PURPLE3, ghost = 1, affiliation = "any" })
 
 
 Spell({ 3355, 14308, 14309 }, { name = "Freezing Trap", color = colors.FROZEN, affiliation = "any",
-    pvpduration = 20,
+    pvpduration = 10,
     duration = function(timer)
         local mul = 1 + 0.15*Talent(19239, 19245) -- Clever Traps
         if timer.spellID == 3355 then return 10*mul
@@ -137,7 +137,7 @@ Interrupt(16979, "Feral Charge", 4, { affiliation = "any" })
 
 
 Spell({ 339, 1062, 5195, 5196, 9852, 9853, 26989, 19975, 19974, 19973, 19972, 19971, 19970, 27010 }, { name = "Entangling Roots", color = colors.DBROWN, affiliation = "any",
-    pvpduration = 20,
+    pvpduration = 10,
     duration = function(timer)
         if timer.spellID == (339 or 19975) then return 12
         elseif timer.spellID == (1062 or 19974) then return 15
@@ -152,7 +152,7 @@ Spell({ 339, 1062, 5195, 5196, 9852, 9853, 26989, 19975, 19974, 19973, 19972, 19
 
 Spell( 33786 ,{ name = "Cyclone", shine = true, color = colors.BLACK, overlay = {0, "gcd"}, duration = 6, affiliation = "any" })
 Spell({ 2637, 18657, 18658 }, { name = "Hibernate", color = colors.PURPLE4, nameplates = true, affiliation = "any",
-    pvpduration = 20,
+    pvpduration = 10,
     duration = function(timer)
         if timer.spellID == 2637 then return 20
         elseif timer.spellID == 18657 then return 30
@@ -194,7 +194,7 @@ Interrupt(2139, "Counterspell", 8, { affiliation = "any" })
 Spell( 33043 ,{ name = "Dragon's Breath", duration = 3, shine = true, color = colors.PURPLE3, affiliation = "any" })
 Spell( 18469 ,{ name = "Silence", duration = 4, color = colors.CHIM, affiliation = "any" }) -- Improved Counterspell
 Spell({ 118, 12824, 12825, 28271, 28272, 12826 },{ name = "Polymorph", glowtime = 5, ghost = 1, ghosteffect = "SLICENDICE", color = colors.LGREEN, affiliation = "any",
-    pvpduration = 20,
+    pvpduration = 10,
     duration = function(timer)
         if timer.spellID == 118 then return 20
         elseif timer.spellID == 12824 then return 30
@@ -212,7 +212,7 @@ Spell( 12355 ,{ name = "Impact", duration = 2, shine = true, color = colors.PURP
 
 Spell( 15487 ,{ name = "Silence", duration = 5, color = colors.PINK, affiliation = "any" })
 
-Spell({ 605, 10911, 10912 },{ name = "Mind Control", duration = 15, pvpduration = 20, color = colors.PURPLE3, affiliation = "any" })
+Spell({ 605, 10911, 10912 },{ name = "Mind Control", duration = 15, pvpduration = 10, color = colors.PURPLE3, affiliation = "any" })
 
 
 
@@ -245,7 +245,7 @@ Spell( 18425 ,{ name = "Silence", duration = 2, color = colors.PINK, affiliation
 
 Spell( 1833 , { name = "Cheap Shot", duration = 4, color = colors.LRED, affiliation = "any" })
 Spell({ 2070, 6770, 11297 }, { name = "Sap", color = colors.LBLUE, glowtime = 5, ghost = 1, ghosteffect = "SLICENDICE", affiliation = "any",
-    pvpduration = 20,
+    pvpduration = 10,
     duration = function(timer)
         if timer.spellID == 6770 then return 25 -- yes, Rank 1 spell id is 6770 actually
         elseif timer.spellID == 2070 then return 35
@@ -273,15 +273,15 @@ Spell({ 1776, 1777, 8629, 11285, 11286, 38764 }, { name = "Gouge", shine = true,
 Spell( 18498 ,{ name = "Silence", duration = 3, color = colors.PINK, affiliation = "any" }) -- Improved Shield Bash
 Spell({ 20253, 20614, 20615, 25273, 25274 }, { name = "Intercept", duration = 3, shine = true, color = colors.DRED, affiliation = "any" })
 Spell({ 100, 6178, 11578, 7922 }, { name = "Charge", duration = 1, shine = true, color = colors.DRED, affiliation = "any" })
-Spell({ 23694 }, { name = "Improved Hamstring", duration = 1, shine = true, color = colors.DRED, affiliation = "any" }) -- Improved Hamstring
-Spell({ 5530 }, { name = "Mace Stun Effect", duration = 1, shine = true, color = colors.DRED, affiliation = "any" }) 
-Spell({ 12809 }, { name = "Concussion Blow", duration = 1, shine = true, color = colors.DRED, affiliation = "any" })
-Spell({ 34510 }, { name = "Weapon Stun", duration = 1, shine = true, color = colors.DBLUE, affiliation = "any" }) -- Stormherald's and Deep Thunder's stun proc
+Spell({ 23694 }, { name = "Improved Hamstring", duration = 5, shine = true, color = colors.DRED, affiliation = "any" }) -- Improved Hamstring
+Spell({ 5530 }, { name = "Mace Stun Effect", duration = 3, shine = true, color = colors.DRED, affiliation = "any" }) 
+Spell({ 12809 }, { name = "Concussion Blow", duration = 5, shine = true, color = colors.DRED, affiliation = "any" })
+Spell({ 34510 }, { name = "Weapon Stun", duration = 4, shine = true, color = colors.DBLUE, affiliation = "any" }) -- Stormherald's and Deep Thunder's stun proc
 
 
 -- Spell( 20511 ,{ name = "Intimidating Shout", duration = 8, priority = -1 }) -- Main Target
 Spell( { 5246, 20511 }, { name = "Intimidating Shout", duration = 8, color = colors.PURPLE4, multiTarget = true, affiliation = "any" }) -- AoE Fear
-Spell({ 8122, 8124, 10888, 10890 }, { name = "Psychic Scream", duration = 8, shine = true, multiTarget = true, affiliation = "any" })
+
 
 -- TODO: Victory Rush activation
 
